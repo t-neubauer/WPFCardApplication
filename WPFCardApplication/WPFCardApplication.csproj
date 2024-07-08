@@ -13,4 +13,8 @@
     <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+
 </Project>

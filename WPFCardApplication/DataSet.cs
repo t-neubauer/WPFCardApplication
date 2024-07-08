@@ -4,28 +4,27 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPFCardApplication.Model;
 
 namespace WPFCardApplication
 {
-    internal class DataSet : ObservableCollection<DataObject>
+    internal class DataSet : ObservableCollection<Card>
 	{																		
 		string[] names = { "Blue Eyes White Dragon", "Dark Magician", "Time Wizard", "Red Eyes B. Dragon" };
-		string[] types = { "monster", "trap", "spell", "ritual", "synchro", "xyz", "fusion" };
-		string[] edition = { "lob", "mrd", "srl", "mrl", "pgd", "psv", "mfc" };
 		string[] rarity = { "common", "rare", "super rare", "ultra rare", "ultimate rare", "secret rare" };
 
         public DataSet() : base() 
         {
 			Random random = new Random();
-			Add(new DataObject(names[random.Next(names.Length)],
+			Add(new Card(names[random.Next(names.Length)],
 					rarity[random.Next(rarity.Length)]));
-			Add(new DataObject(names[random.Next(names.Length)],
+			Add(new Card(names[random.Next(names.Length)],
 					rarity[random.Next(rarity.Length)]));
-			Add(new DataObject(names[random.Next(names.Length)],
+			Add(new Card(names[random.Next(names.Length)],
 					rarity[random.Next(rarity.Length)]));
-			Add(new DataObject(names[random.Next(names.Length)],
+			Add(new Card(names[random.Next(names.Length)],
 					rarity[random.Next(rarity.Length)]));
-			Add(new DataObject(names[random.Next(names.Length)],
+			Add(new Card(names[random.Next(names.Length)],
 					rarity[random.Next(rarity.Length)]));
         }
 	}
