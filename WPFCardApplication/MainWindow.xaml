@@ -10,28 +10,29 @@
         Title="MainWindow" Height="450" Width="800"
         >
     <Window.Resources>
-        <!--Create list of enumeration values--><!--
+        <!--Create list of enumeration values-->
         <ObjectDataProvider x:Key="myEnum" MethodName="GetValues" ObjectType="{x:Type core:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type Type="c:Rarity"/>
             </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>-->
+        </ObjectDataProvider>
     </Window.Resources>
     <Grid Height="434" VerticalAlignment="Bottom">
         <ListView x:Name="cardListView"
           ItemsSource="{Binding Cards}"
           DisplayMemberPath="CardName"/>
         <DataGrid 
-            ItemsSource ="{Binding Path=Cards}"
+            ItemsSource ="{Binding Cards}"
             DisplayMemberPath="CardName"
-                  AutoGenerateColumns="False" Margin="0,180,0,0">
+                  AutoGenerateColumns="True" Margin="0,180,0,0">
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Text" IsReadOnly="True" Binding="{Binding CardName}"/>
 
-                <DataGridComboBoxColumn Header="Rarity" 
+                <DataGridComboBoxColumn Header="MyManualRarity" 
                                         Width="Auto"
-                                        ItemsSource="{Binding Cards}">
+                                        ItemsSource="{Binding Source={StaticResource myEnum}}"
+                                        TextBinding="{Binding Rarity}">
                 </DataGridComboBoxColumn>
             </DataGrid.Columns>
         </DataGrid>

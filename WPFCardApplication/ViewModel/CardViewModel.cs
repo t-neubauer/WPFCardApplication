@@ -13,6 +13,11 @@ namespace WPFCardApplication.ViewModel
             _cardDataProvider = cardDataProvider;
         }
 
+        public CardViewModel()
+        {
+            _cardDataProvider = new CardDataProvider();
+        }
+
         public ObservableCollection<Card> Cards { get; } = new();
 
         public async Task LoadAsync()
@@ -20,9 +25,9 @@ namespace WPFCardApplication.ViewModel
             if(Cards.Any()) 
                 return;
             
-            var cards = await _cardDataProvider.GetAllAsync();
+            var cards = await _cardDataProvider.GetAllAsync().ConfigureAwait(true);
             
-            if (cards == null)
+            if (cards is not null)
             {
 				foreach (var card in cards)
 				{
